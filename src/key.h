@@ -1,9 +1,10 @@
 // Copyright (c) 2009-2016 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin developers
+// Copyright (c) 2015-2016 Silk Network
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef BITCOIN_KEY_H
-#define BITCOIN_KEY_H
+#ifndef SILK_KEY_H
+#define SILK_KEY_H
 
 #include <vector>
 
@@ -166,13 +167,6 @@ public:
 
     // Derive BIP32 child pubkey.
     bool Derive(CPubKey& pubkeyChild, unsigned char ccChild[32], unsigned int nChild, const unsigned char cc[32]) const;
-
-    // Raw for stealth address
-    std::vector<unsigned char> Raw() const {
-    std::vector<unsigned char> r;
-        r.insert(r.end(), vch, vch+size());
-    return r;
-    }
 };
 
 

@@ -1,16 +1,18 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin developers
+// Copyright (c) 2015-2016 Silk Network
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOINRPC_SERVER_H
-#define BITCOINRPC_SERVER_H
+#ifndef SILKRPC_SERVER_H
+#define SILKRPC_SERVER_H
 
 #include <list>
 #include <map>
 
 #include "uint256.h"
 #include "rpcprotocol.h"
+#include "utilstrencodings.h"
 
 class CBlockIndex;
 
@@ -50,7 +52,7 @@ public:
 };
 
 /**
- * Bitcoin RPC command dispatcher.
+ * Silk RPC command dispatcher.
  */
 class CRPCTable
 {
@@ -84,9 +86,10 @@ extern double GetDifficulty(const CBlockIndex* blockindex = NULL);
 extern double GetPoWMHashPS();
 extern double GetPoSKernelPS();
 
-extern std::string HelpRequiringPassphrase();
 extern std::string HelpExampleCli(std::string methodname, std::string args);
 extern std::string HelpExampleRpc(std::string methodname, std::string args);
+
+extern std::string HelpRequiringPassphrase();
 extern void EnsureWalletIsUnlocked();
 
 //

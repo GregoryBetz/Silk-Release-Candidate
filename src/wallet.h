@@ -1,9 +1,10 @@
 // Copyright (c) 2009-2016 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin developers
+// Copyright (c) 2015-2016 Silk Network
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef BITCOIN_WALLET_H
-#define BITCOIN_WALLET_H
+#ifndef SILK_WALLET_H
+#define SILK_WALLET_H
 
 #include <string>
 #include <vector>
@@ -592,6 +593,10 @@ public:
         fAvailableCreditCached = false;
         fDebitCached = false;
         fChangeCached = false;
+        fWatchDebitCached = false;
+        fWatchCreditCached = false;
+        fAvailableWatchCreditCached = false;
+        fImmatureWatchCreditCached = false;
     }
 
     void BindWallet(CWallet *pwalletIn)
@@ -650,6 +655,8 @@ public:
                 debit += nDebitCached;
             }
         }
+        //TODO (Amir): Fix issue with watch-only code below. Currently returns the wrong debit value.
+        /*
         if(filter & MINE_WATCH_ONLY)
         {
             if(fWatchDebitCached)
@@ -661,6 +668,7 @@ public:
                 debit += nWatchDebitCached;
             }
         }
+        */
         return debit;
     }
 
@@ -683,6 +691,8 @@ public:
                 credit += nCreditCached;
             }
         }
+        //TODO (Amir): Fix issue with watch-only code below. Currently returns the wrong credit value.
+        /*
         if (filter & MINE_WATCH_ONLY)
         {
             if (fWatchCreditCached)
@@ -694,6 +704,7 @@ public:
                 credit += nWatchCreditCached;
             }
         }
+        */
         return credit;
     }
 

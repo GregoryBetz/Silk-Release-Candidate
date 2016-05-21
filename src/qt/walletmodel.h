@@ -30,7 +30,7 @@ public:
     qint64 amount;
 };
 
-/** Interface to Bitcoin wallet from Qt view code. */
+/** Interface to Silk wallet from Qt view code. */
 class WalletModel : public QObject
 {
     Q_OBJECT
@@ -129,7 +129,6 @@ public:
     bool isLockedCoin(uint256 hash, unsigned int n) const;
     void lockCoin(COutPoint& output);
     void unlockCoin(COutPoint& output);
-    CWallet* getWallet();
     void listLockedCoins(std::vector<COutPoint>& vOutpts);
 
 private:
@@ -148,6 +147,10 @@ private:
     qint64 cachedStake;
     qint64 cachedUnconfirmedBalance;
     qint64 cachedImmatureBalance;
+    qint64 cachedWatchBalance;
+    qint64 cachedWatchStake;
+    qint64 cachedWatchUnconfirmedBalance;
+    qint64 cachedWatchImmatureBalance;
     EncryptionStatus cachedEncryptionStatus;
     int cachedNumBlocks;
 
@@ -172,7 +175,8 @@ public slots:
 
 signals:
     // Signal that balance in wallet changed
-    void balanceChanged(qint64 balance, qint64 stake, qint64 unconfirmedBalance, qint64 immatureBalance);
+    void balanceChanged(qint64 balance, qint64 stake, qint64 unconfirmedBalance, qint64 immatureBalance,
+                        qint64 watchBalance, qint64 watchStake, qint64 watchUnconfirmedBalance, qint64 watchImmatureBalance);
 
     // Encryption status of wallet changed
     void encryptionStatusChanged(int status);

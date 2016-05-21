@@ -108,7 +108,7 @@ OBJS= \
     obj/crypter.o \
     obj/key.o \
     obj/init.o \
-    obj/bitcoind.o \
+    obj/silkd.o \
     obj/keystore.o \
     obj/core.o \
     obj/main.o \
@@ -125,6 +125,7 @@ OBJS= \
     obj/script.o \
     obj/sync.o \
     obj/txmempool.o \
+    obj/utilstrencodings.o \
     obj/util.o \
     obj/hash.o \
     obj/noui.o \

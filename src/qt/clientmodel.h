@@ -5,6 +5,7 @@
 
 class OptionsModel;
 class AddressTableModel;
+class PeerTableModel;
 class TransactionTableModel;
 class CWallet;
 
@@ -13,7 +14,7 @@ class QDateTime;
 class QTimer;
 QT_END_NAMESPACE
 
-/** Model for Bitcoin network client. */
+/** Model for Silk network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT
@@ -23,6 +24,7 @@ public:
     ~ClientModel();
 
     OptionsModel *getOptionsModel();
+    PeerTableModel *getPeerTableModel();
 
     int getNumConnections() const;
     int getNumBlocks() const;
@@ -50,6 +52,7 @@ public:
 
 private:
     OptionsModel *optionsModel;
+    PeerTableModel *peerTableModel;
 
     int cachedNumBlocks;
 

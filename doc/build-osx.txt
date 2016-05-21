@@ -1,4 +1,4 @@
-Copyright (c) 2009-2016 Bitcoin Developers
+Copyright (c) 2009-2016 Silk Developers
 Distributed under the MIT/X11 software license, see the accompanying file
 license.txt or http://www.opensource.org/licenses/mit-license.php.  This
 product includes software developed by the OpenSSL Project for use in the
@@ -27,7 +27,7 @@ but you can get the current version from http://developer.apple.com
 
 1.  Clone the github tree to get the source code:
 
-git clone https://github.com/rat4/silk.git silk
+git clone https://github.com/SilkNetwork/Silk-Core.git silk
 
 2.  Download and install MacPorts from http://www.macports.org/
 
